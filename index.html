@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				list-style:none;
+				border: 0;
+			}
+			h3{
+				height: 130px;
+			}
+			.drop{
+				width: 100px;
+				height: 100px;
+				margin: 10px auto;
+				background: yellowgreen;
+				float: left;
+				margin-left: 20px;
+			}
+			.box{
+				text-align:center;
+				margin:20px auto;
+			}
+			span{
+				font-size:5em;
+				font-family:'微软雅黑';
+				font-weight:bold;
+				letter-spacing:20px;
+				position:relative;
+				
+			}
+			span:before,span:after{
+				content:attr(data-ff);
+				position:absolute;
+				left: 0;
+				top: 0;
+				transition: all 1s;
+				transform-origin: left;
+			}
+			span:before{
+				color:rgba(0, 0, 0, 0.5);
+			}
+			span:after{
+				color:#eee;
+			}
+			
+			span:hover:after{
+				transform: rotateY(-30deg) skewY(15deg);
+			}
+			span:hover:before{
+				transform: rotateY(-45deg) skewY(20deg) scaleX(1.5);
+			}
+			.list{
+				width: 200px;
+				height: 200px;
+				margin: 150px auto;
+				position: relative;
+				transition: all 10s;
+				transform-style: preserve-3d;
+				animation: move 10s linear 0s infinite;
+			}
+			@keyframes move{
+				0%{
+					transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+				}
+				50%{
+					transform: rotateX(-360deg) rotateY(-360deg) rotateZ(-360deg);
+				}
+				100%{
+					transform: rotateX(-720deg) rotateY(-720deg) rotateZ(-720deg);
+				}
+			}
+			.list:hover{
+				animation-play-state: paused;
+			}
+			.list li{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			.list li img{
+				width: 100%;
+				height: 100%;
+			}
+			.list li:nth-child(1){
+				background: lightblue;
+				transform: rotateX(-90deg) translateZ(-100px);
+			}
+			.list li:nth-child(2){
+				background: lightpink;
+				transform: rotateX(-90deg) translateZ(100px);
+			}
+			.list li:nth-child(3){
+				background: lightgreen;
+				transform: rotateY(-90deg) translateZ(100px);
+			}
+			.list li:nth-child(4){
+				background: lightsteelblue;
+				transform: rotateY(-90deg) translateZ(-100px);
+			}
+			.list li:nth-child(5){
+				background: lightsalmon;
+				transform: translateZ(-100px);
+			}
+			.list li:nth-child(6){
+				background: orange;
+				transform: translateZ(100px);
+			}
+		/* 	.list:hover{
+				transform: rotateY(360deg) rotateX(360deg) rotateZ(360deg);
+			} */
+			
+        </style>
+         <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="jquery.easing.1.3.js"></script>
+        <script type="text/javascript">
+        		$(function() {
+
+        			var $box = $('div');
+        			$box.hover(function() {
+        				$(this).stop().animate({
+        					'margin-top':500
+
+        				}, 1000,'easeOutElastic')
+        			}, function() {
+
+        				// setTimeout($(this).stop().animate({
+        				// 	'margin-top':-500
+
+        				// }, 1000,'easeOutBounce'), 1500)
+        			});
+						
+        		});
+
+        </script>
+    </head>
+    <body>
+    	<div class="drop"></div>
+    	<div class="drop"></div>
+    	<div class="drop"></div>
+    	<div class="drop"></div>
+    	<div class="drop"></div>
+    	<div class="drop"></div>
+    	<div class="drop"></div>
+    	<div class="drop"></div>
+    	<div class="drop"></div>
+    	<div class="drop"></div>
+    	<div class="drop"></div>
+    	<h3 class="box">
+    		<span data-ff="爸">爸</span>
+    		<span data-ff="爸">爸</span>
+    		<span data-ff="爱">爱</span>
+    		<span data-ff="你">你</span>
+    		<span data-ff="们">们</span>
+    	</h3>
+    	<ul class="list">
+    		<li><img src="pic/1.jpg"></li>
+    		<li><img src="pic/4.png"></li>
+    		<li><img src="pic/3.jpg"></li>
+    		<li><img src="pic/2.jpg"></li>
+    		<li><img src="pic/5.png"></li>
+    		<li style="text-align:center;line-height:200px;font-size:40px;color:white">摸我</li>
+    	</ul>
+    </body>
+</html>
